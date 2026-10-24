@@ -1,0 +1,55 @@
+﻿<Page x:Class="UP01_Ibragimov_Delivery.ChangePassPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ChangePassPage">
+
+    <Grid HorizontalAlignment="Center" Width="500" VerticalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150" />
+            <ColumnDefinition Width="300" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Смена пароля" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="0,0,0,20"/>
+
+        <!-- Логин -->
+        <Label Content="Логин:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" FontSize="14"/>
+        <Grid Grid.Row="1" Grid.Column="1">
+            <TextBox x:Name="TbLogin" Height="35" VerticalContentAlignment="Center" TextChanged="TbLogin_TextChanged" ToolTip="Введите логин"/>
+            <TextBlock x:Name="lblLoginHint" Text="Введите логин" Foreground="Gray" Margin="10,0,0,0" VerticalAlignment="Center" IsHitTestVisible="False" MouseLeftButtonUp="lblLoginHint_MouseLeftButtonUp"/>
+        </Grid>
+
+        <!-- Старый пароль -->
+        <Label Content="Текущий пароль:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" FontSize="14"/>
+        <Grid Grid.Row="2" Grid.Column="1">
+            <PasswordBox x:Name="CurrentPasswordBox" Height="35" VerticalContentAlignment="Center" PasswordChanged="CurrentPasswordBox_PasswordChanged" ToolTip="Введите текущий пароль"/>
+            <TextBlock x:Name="lblCurrentPassHint" Text="Введите текущий пароль" Foreground="Gray" Margin="10,0,0,0" VerticalAlignment="Center" IsHitTestVisible="False" MouseLeftButtonUp="lblCurrentPassHint_MouseLeftButtonUp"/>
+        </Grid>
+
+        <!-- Новый пароль -->
+        <Label Content="Новый пароль:" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" FontSize="14"/>
+        <Grid Grid.Row="3" Grid.Column="1">
+            <PasswordBox x:Name="NewPasswordBox" Height="35" VerticalContentAlignment="Center" PasswordChanged="NewPasswordBox_PasswordChanged" ToolTip="Введите новый пароль"/>
+            <TextBlock x:Name="lblNewPassHint" Text="Введите новый пароль" Foreground="Gray" Margin="10,0,0,0" VerticalAlignment="Center" IsHitTestVisible="False" MouseLeftButtonUp="lblNewPassHint_MouseLeftButtonUp"/>
+        </Grid>
+
+        <!-- Подтверждение пароля -->
+        <Label Content="Повторите пароль:" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" FontSize="14"/>
+        <Grid Grid.Row="4" Grid.Column="1">
+            <PasswordBox x:Name="ConfirmPasswordBox" Height="35" VerticalContentAlignment="Center" ToolTip="Повторите новый пароль"/>
+        </Grid>
+
+        <Button x:Name="SaveButton" Content="Сохранить изменения" Grid.Row="5" Grid.ColumnSpan="2" Width="200" Margin="0,20,0,0" Click="SaveButton_Click"/>
+    </Grid>
+</Page>

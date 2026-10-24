@@ -1,0 +1,49 @@
+﻿<Page x:Class="UP01_Ibragimov_Delivery.AddPaymentPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800">
+
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="500">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock x:Name="TitleText" Text="Добавление заказа" FontSize="22" FontWeight="Bold" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+        <Label Content="Название:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
+        <TextBox x:Name="TBPaymentName" Grid.Row="1" Grid.Column="1" Height="30" Margin="5" Text="{Binding Name}"/>
+
+        <Label Content="Количество:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"/>
+        <TextBox x:Name="TBCount" Grid.Row="2" Grid.Column="1" Height="30" Margin="5" Text="{Binding Num}"/>
+
+        <Label Content="Сумма:" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center"/>
+        <TextBox x:Name="TBAmount" Grid.Row="3" Grid.Column="1" Height="30" Margin="5" Text="{Binding Price}"/>
+
+        <Label Content="Дата (дд.мм.гггг):" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center"/>
+        <DatePicker x:Name="DPDate" Grid.Row="4" Grid.Column="1" Height="30" Margin="5" SelectedDate="{Binding Date}"/>
+
+        <Label Content="Пользователь:" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center"/>
+        <ComboBox x:Name="CBUser" Grid.Row="5" Grid.Column="1" Height="30" Margin="5" DisplayMemberPath="FIO" SelectedValuePath="ID" SelectedValue="{Binding UserID}"/>
+
+        <Label Content="Категория:" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center"/>
+        <ComboBox x:Name="CBCategory" Grid.Row="6" Grid.Column="1" Height="30" Margin="5" DisplayMemberPath="Name" SelectedValuePath="ID" SelectedValue="{Binding CategoryID}"/>
+
+        <StackPanel Grid.Row="7" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+            <Button Content="Сохранить" Width="120" Height="35" Margin="10" Click="ButtonSave_Click"/>
+            <Button Content="Очистить" Width="120" Height="35" Margin="10" Click="ButtonClean_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>

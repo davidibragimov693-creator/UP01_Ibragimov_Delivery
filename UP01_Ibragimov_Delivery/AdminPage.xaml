@@ -1,0 +1,41 @@
+﻿<Page x:Class="UP01_Ibragimov_Delivery.AdminPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AdminPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок -->
+        <TextBlock Text="Панель администратора" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                   FontSize="28" FontWeight="Bold" Margin="0,30,0,40"/>
+
+        <!-- Кнопки навигации -->
+        <WrapPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
+
+            <Button x:Name="BtnTab1" Content="Таблица пользователей" Width="220" Height="80" 
+                    FontSize="16" FontWeight="SemiBold" Margin="20" Click="BtnTab1_Click"/>
+
+            <Button x:Name="BtnTab2" Content="Таблица категорий" Width="220" Height="80" 
+                    FontSize="16" FontWeight="SemiBold" Margin="20" Click="BtnTab2_Click"/>
+
+            <Button x:Name="BtnTab3" Content="Таблица заказов (платежей)" Width="220" Height="80" 
+                    FontSize="16" FontWeight="SemiBold" Margin="20" Click="BtnTab3_Click"/>
+
+            <Button x:Name="BtnTab4" Content="Аналитика и диаграммы" Width="220" Height="80" 
+                    FontSize="16" FontWeight="SemiBold" Margin="20" Click="BtnTab4_Click"/>
+
+            <!-- Дополнительная кнопка для выхода или возврата к странице пользователей (по желанию) -->
+            <Button x:Name="BtnBackToUsers" Content="Вернуться к пользователям" Width="220" Height="80" 
+                    FontSize="16" FontWeight="SemiBold" Margin="20" Click="BtnBackToUsers_Click"/>
+
+        </WrapPanel>
+    </Grid>
+</Page>

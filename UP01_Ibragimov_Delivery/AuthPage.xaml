@@ -1,0 +1,71 @@
+﻿<Page x:Class="UP01_Ibragimov_Delivery.AuthPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AuthPage">
+
+    <Grid HorizontalAlignment="Center" Width="500" VerticalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="250" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок -->
+        <TextBlock Text="Вход в систему" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="0,0,0,20"/>
+
+        <!-- Поле Логин -->
+        <Label Content="Логин:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" FontSize="14"/>
+        <Grid Grid.Row="1" Grid.Column="1">
+            <TextBox x:Name="TextBoxLogin" Height="35" VerticalContentAlignment="Center" Padding="5,0,0,0" TextChanged="TextBoxLogin_TextChanged" ToolTip="Введите логин"/>
+            <!-- Текст-подсказка (Placeholder) -->
+            <TextBlock x:Name="txtHintLogin" Text="Введите логин" Foreground="Gray" Margin="10,0,0,0" VerticalAlignment="Center" IsHitTestVisible="False" MouseLeftButtonUp="txtHintLogin_MouseLeftButtonUp"/>
+        </Grid>
+
+        <!-- Поле Пароль -->
+        <Label Content="Пароль:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" FontSize="14"/>
+        <Grid Grid.Row="2" Grid.Column="1">
+            <PasswordBox x:Name="PasswordBox" Height="35" VerticalContentAlignment="Center" Padding="5,0,0,0" PasswordChanged="PasswordBox_PasswordChanged" ToolTip="Введите пароль"/>
+            <!-- Текст-подсказка для пароля -->
+            <TextBlock x:Name="txtHintPass" Text="Введите пароль" Foreground="Gray" Margin="10,0,0,0" VerticalAlignment="Center" IsHitTestVisible="False" MouseLeftButtonUp="txtHintPass_MouseLeftButtonUp"/>
+        </Grid>
+
+        <!-- Кнопки -->
+        <Button x:Name="ButtonEnter" Content="Вход" Grid.Row="3" Grid.Column="1" Margin="0,20,0,0" Height="35" Click="ButtonEnter_OnClick"/>
+
+        <Button x:Name="ButtonReg" Content="Регистрация" Grid.Row="4" Grid.Column="1" Margin="0,10,0,0" Height="35" Click="ButtonReg_Click"/>
+
+        <Button x:Name="ButtonChangePassword" Content="Сменить пароль" Grid.Row="5" Grid.Column="1" Margin="0,10,0,0" Height="35" Click="ButtonChangePassword_Click"/>
+        <!-- ===== ЭЛЕМЕНТЫ КАПЧИ ===== -->
+
+        <!-- 1. Сам текст капчи (изначально скрыт) -->
+        <TextBox x:Name="captcha" Grid.Row="1" Grid.Column="1" Height="42" Width="156" 
+                 Visibility="Hidden" Foreground="Red" FontStyle="Italic" FontWeight="Heavy" 
+                 FontSize="20" Background="#FFE8E8E8" IsReadOnly="True" 
+                 HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                 CommandManager.PreviewExecuted="textBox_PreviewExecuted" ContextMenu="{x:Null}"/>
+
+        <!-- 2. Поле для ввода капчи (изначально скрыто) -->
+        <TextBox x:Name="captchaInput" Grid.Row="2" Grid.Column="1" Height="35" Width="160" 
+                 Visibility="Hidden" TextWrapping="Wrap" Text="" Margin="0,0,90,0" HorizontalAlignment="Right"/>
+
+        <!-- 3. Кнопка подтверждения капчи (изначально скрыта) -->
+        <Button x:Name="submitCaptcha" Grid.Row="3" Grid.Column="1" Height="35" Width="120" 
+                Content="Подтвердить" Visibility="Hidden" Click="submitCaptcha_Click" Margin="0,20,130,0" HorizontalAlignment="Right"/>
+
+        <!-- 4. Подпись к капче (по желанию) -->
+        <Label x:Name="labelCaptcha" Grid.Row="2" Grid.Column="0" Content="Введите код:" 
+               Visibility="Hidden" VerticalAlignment="Center" FontSize="14" FontWeight="Bold"/>
+    </Grid>
+</Page>
